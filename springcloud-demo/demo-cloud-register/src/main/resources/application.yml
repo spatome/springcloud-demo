@@ -1,0 +1,29 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: demo-cloud-register
+  security:
+    user:
+      name: root
+      password: root
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5  #服务刷新时间配置，每隔这个时间会主动心跳一次，默认30s
+    lease-expiration-duration-in-seconds: 15 #在这个时间内若没收到下一次心跳，则将移除该instancem,为了防止网络抖动设置3倍心跳时间
+  server:
+    enable-self-preservation: false #关闭服务保护机制
+    renewal-threshold-update-interval-ms: 120000 #此值用于计算每分钟的预期心跳
+    eviction-interval-timer-in-ms: 5000 #清理无效节点时间间隔（单位毫秒，默认是60*1000）
+    use-read-only-response-cache: false #禁用readOnlyCacheMap
+  client:
+    register-with-eureka: false #指示此实例是否应将其信息注册到eureka服务器以供其他人发现。在某些情况下，您不希望发现实例，而您只想发现其他实例。
+    fetch-registry: false #指示该客户端是否应从eureka服务器获取eureka注册表信息
+    service-url:
+      defaultZone: http://root:root@127.0.0.1:9999/eureka/
+
+logging:
+  file: /cloud/logs/demo-register/demo.log
