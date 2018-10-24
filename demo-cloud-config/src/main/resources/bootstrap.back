@@ -1,0 +1,30 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://root:root@192.168.0.132:9999/eureka/
+    registry-fetch-interval-seconds: 5
+
+spring:
+  cloud:
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 192.168.0.63
+    virtual-host: cloud
+    port: 5672
+    username: spatome
+    password: spatome
+
+#默认关闭了bus请求url，因此需要打开才能使用
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
