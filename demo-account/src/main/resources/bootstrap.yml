@@ -1,0 +1,38 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+  client:
+    service-url:
+      defaultZone: http://root:root@192.168.0.199:39999/eureka/
+    registry-fetch-interval-seconds: 5
+
+spring:
+  application:
+    name: demo-account
+  cloud:
+    config:
+      #profile: dev
+      name: demo-account
+      discovery:
+        enabled: true
+        service-id: DEMO-CLOUD-CONFIG
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 3000
+        readTimeout: 30000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation: 
+          thread:
+            timeoutInMilliseconds: 5000

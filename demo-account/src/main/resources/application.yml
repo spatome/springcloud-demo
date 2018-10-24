@@ -1,0 +1,28 @@
+server:
+  port: 9910
+
+spring:
+  application:
+    name: demo-account
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.199:3306/test?useUnicode=true&allowMultiQueries=true&amp;characterEncoding=UTF-8
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.spatome.demo.core.entity
+
+logging:
+  file: /cloud/logs/demo-account/demo.log
+
+#redisson:
+#  address: redis://192.168.0.132:6379
+#  password: kxyx92108
+#  database: 3
+#
+#account:
+#  user-name: zzzwww
+#  sex: M
