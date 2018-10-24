@@ -26,4 +26,4 @@ eureka:
       defaultZone: http://root:root@127.0.0.1:9999/eureka/
 
 logging:
-  file: /cloud/logs/demo-register/demo.log
+  file: /cloud/logs/demo-cloud-register/demo.log
