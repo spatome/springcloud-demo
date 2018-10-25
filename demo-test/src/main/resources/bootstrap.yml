@@ -16,11 +16,11 @@ spring:
       profile: dev
       username: root
       password: root
-      #uri:
-      #  - http://192.168.0.199:39998
-      discovery:
-        enabled: true
-        service-id: DEMO-CLOUD-CONFIG
+      uri:
+        - http://192.168.0.199:39998
+#      discovery:
+#        enabled: true
+#        service-id: DEMO-CLOUD-CONFIG
       label: master
 
 #spring:
