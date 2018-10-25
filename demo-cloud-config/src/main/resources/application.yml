@@ -15,6 +15,10 @@ server:
 spring:
   application:
     name: demo-cloud-config
+  security:
+    user:
+      name: root
+      password: root
   cloud:
     config:
       server:
