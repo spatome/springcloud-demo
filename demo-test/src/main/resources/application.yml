@@ -1,0 +1,14 @@
+server:
+  port: 9950
+
+spring:
+  application:
+    name: demo-test
+
+#hystrix:
+#  command:
+#    "AccountClient#addAccountAmount(String,String)":
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 15000
