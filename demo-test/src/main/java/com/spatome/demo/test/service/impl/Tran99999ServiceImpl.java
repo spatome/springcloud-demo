@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spatome.demo.core.BaseVO;
+import com.spatome.demo.core.entity.Account;
 import com.spatome.demo.test.service.TranService;
 
 /** 
@@ -35,6 +36,9 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		LOGGER.debug("===========================业务处理=========================");
 		BigDecimal amt = new BigDecimal(amount);
 
+		Account account = daoFactory.getAccountMapper().selectByAccountNo(enterpriseNo);
+		result.setBody(account);
+		
 		return result;
 	}
 }
