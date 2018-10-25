@@ -14,11 +14,11 @@ spring:
     config:
       name: config  #配置文件config-dev.properties
       profile: dev
-      uri:
-        - http://192.168.0.199:39998
-      #discovery:
-      #  enabled: true
-      #  service-id: DEMO-CLOUD-CONFIG
+      #uri:
+      #  - http://192.168.0.199:39998
+      discovery:
+        enabled: true
+        service-id: DEMO-CLOUD-CONFIG
       label: master
 
 #spring:

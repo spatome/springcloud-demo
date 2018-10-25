@@ -5,6 +5,9 @@ spring:
   application:
     name: demo-test
 
+logging:
+  file: /cloud/logs/demo-test/demo.log
+
 #hystrix:
 #  command:
 #    "AccountClient#addAccountAmount(String,String)":
