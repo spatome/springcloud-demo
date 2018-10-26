@@ -26,12 +26,12 @@
     	<module>demo-core</module>
 
         <module>demo-cloud-register</module>
-        <!-- <module>demo-cloud-config</module> -->
+        <module>demo-cloud-config</module>
         <!-- <module>demo-cloud-gateway</module> -->
         <!-- <module>demo-cloud-monitor</module> -->
 
 		<!-- <module>demo-auth</module> -->
-        <!-- <module>demo-account</module> -->
+        <module>demo-account</module>
         <!-- <module>demo-user</module> -->
     </modules>
 
