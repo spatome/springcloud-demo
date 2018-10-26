@@ -1,6 +1,5 @@
 package com.spatome.demo.test.service.impl;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spatome.demo.core.BaseVO;
-import com.spatome.demo.core.entity.Account;
 import com.spatome.demo.test.service.TranService;
 
 /** 
@@ -27,6 +25,7 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		LOGGER.debug("获取参数");
 		String enterpriseNo = request.get("enterpriseNo");
 		String amount = request.get("amount");
+		String sleep = request.get("sleep");
 		LOGGER.debug("检查参数");
 		Map<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("enterpriseNo", enterpriseNo);
@@ -34,11 +33,17 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		LOGGER.debug("===========================业务处理=========================");
-		BigDecimal amt = new BigDecimal(amount);
-
-		Account account = daoFactory.getAccountMapper().selectByAccountNo(enterpriseNo);
-		result.setBody(account);
+		this.test(result, enterpriseNo, amount, sleep);
 		
 		return result;
+	}
+
+	private void test(BaseVO<Object> result, String enterpriseNo, String amount, String sleep){
+		 Map map = (Map)serviceFactory.getAccountClient().addAmount(enterpriseNo, amount, sleep);
+		 System.out.println(map.get("code"));
+		 System.out.println(map.get("message"));
+		 Map map1 = (Map)map.get("body");
+		 System.out.println(map1.get("value"));
+		 result.setBody(map.toString());
 	}
 }
