@@ -6,7 +6,7 @@ eureka:
     lease-expiration-duration-in-seconds: 15
   client:
     service-url:
-      defaultZone: http://root:root@127.0.0.1:9999/eureka/
+      defaultZone: http://root:root@192.168.10.133:9999/eureka/
     registry-fetch-interval-seconds: 5
 
 spring:
@@ -16,8 +16,8 @@ spring:
       profile: dev
       username: root
       password: root
-#      uri:
-#        - http://192.168.0.199:39998
+      #uri:
+      #  - http://192.168.0.199:39998
       discovery:
         enabled: true
         service-id: DEMO-CLOUD-CONFIG

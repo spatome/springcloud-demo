@@ -40,10 +40,10 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 
 	private void test(BaseVO<Object> result, String enterpriseNo, String amount, String sleep){
 		 Map map = (Map)serviceFactory.getAccountClient().addAmount(enterpriseNo, amount, sleep);
-		 System.out.println(map.get("code"));
-		 System.out.println(map.get("message"));
+		 LOGGER.info(map.get("code").toString());
+		 LOGGER.info(map.get("message").toString());
 		 Map map1 = (Map)map.get("body");
-		 System.out.println(map1.get("value"));
-		 result.setBody(map.toString());
+		 LOGGER.info(map1.get("value").toString());
+		 result.setBody(map);
 	}
 }
