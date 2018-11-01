@@ -16,7 +16,7 @@ mybatis:
   type-aliases-package: com.spatome.demo.core.entity
 
 logging:
-  file: /cloud/logs/demo-account/demo.log
+  file: /data/cloud/logs/demo-account/demo.log
 
 #redisson:
 #  address: redis://192.168.0.132:6379

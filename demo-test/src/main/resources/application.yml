@@ -16,7 +16,7 @@ mybatis:
   type-aliases-package: com.spatome.demo.core.entity
 
 logging:
-  file: /cloud/logs/demo-test/demo.log
+  file: /data/cloud/logs/demo-test/demo.log
 
 #hystrix:
 #  command:
