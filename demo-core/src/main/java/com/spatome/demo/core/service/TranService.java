@@ -1,4 +1,4 @@
-package com.spatome.demo.user.service;
+package com.spatome.demo.core.service;
 
 import java.util.Map;
 

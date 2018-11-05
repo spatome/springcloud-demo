@@ -1,4 +1,4 @@
-package com.spatome.demo.auth.util;
+package com.spatome.demo.core.util.spring;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

@@ -1,4 +1,4 @@
-package com.spatome.demo.user.controller;
+package com.spatome.demo.core.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +20,8 @@ public class DemoController extends BaseController {
 	public Object test(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		BaseVO<Object> result = new BaseVO<Object>();
 
-		log.info("端口："+request.getLocalPort());
+		log.info("端口{{}},请求uri{{}}", request.getLocalPort(), request.getRequestURL());
+		result.setBody(request.getLocalPort());
 
 		return result;
 	}

@@ -19,10 +19,3 @@ zuul:
     test:
       path: /test/**
       service-id: DEMO-TEST
-
-logging:
-  file: /data/cloud/logs/demo-cloud-gateway/demo.log
-  level:
-    root: info
-    com.spatome.demo.gateway.controller: debug
-    com.spatome.demo.gateway.filter: debug

@@ -20,7 +20,7 @@ public class DemoController extends BaseController {
 	public Object test(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		BaseVO<Object> result = new BaseVO<Object>();
 
-		log.info("1:"+request.getRequestURL());
+		log.info("请求uri:"+request.getRequestURL());
 
 		return result;
 	}

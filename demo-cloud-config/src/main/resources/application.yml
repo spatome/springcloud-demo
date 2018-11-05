@@ -27,6 +27,3 @@ spring:
           search-paths: config-repo #配置中心
           username: spatome
           password: Zw111111
-
-logging:
-  file: /data/cloud/logs/demo-cloud-config/demo.log

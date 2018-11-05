@@ -1,5 +1,5 @@
 server:
-  port: 9910
+  port: 9920
 
 spring:
   application:
@@ -14,9 +14,6 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.spatome.demo.core.entity
-
-logging:
-  file: /data/cloud/logs/demo-account/demo.log
 
 #redisson:
 #  address: redis://192.168.0.132:6379

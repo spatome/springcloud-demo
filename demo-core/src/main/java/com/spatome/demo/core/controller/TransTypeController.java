@@ -1,4 +1,4 @@
-package com.spatome.demo.user.controller;
+package com.spatome.demo.core.controller;
 
 import java.util.Map;
 
@@ -11,24 +11,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spatome.demo.user.service.TranService;
-import com.spatome.demo.user.util.SpringUtil;
+import com.spatome.demo.core.service.TranService;
+import com.spatome.demo.core.util.spring.SpringUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(value = "/process")
 @Slf4j
-public class TransTypeController extends BaseController {
+public class TransTypeController {
 
 	@RequestMapping(value = "{transType}", method = RequestMethod.POST)
 	public Object process(
-			@PathVariable	String transType,
+			@PathVariable String transType,
 			@RequestParam Map<String, String> inMap,
 			HttpServletRequest request,
 			HttpServletResponse response
 			) throws Exception {
-
 		log.debug("==>"+inMap);
 
 		Object result = null;
@@ -39,7 +38,7 @@ public class TransTypeController extends BaseController {
 		}
 		catch (Exception e)
 		{
-			log.error("==>transType{{}}data{{}}", transType, inMap);
+			log.error("==>transType{{}}inMap{{}}", transType, inMap);
 			throw e;
 		}
 

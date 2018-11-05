@@ -1,14 +1,11 @@
-package com.spatome.demo.user.controller;
+package com.spatome.demo.core.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spatome.demo.core.BaseVO;
 import com.spatome.demo.core.exception.SException;
-import com.spatome.demo.user.factory.DaoFactory;
-import com.spatome.demo.user.factory.ServiceFactory;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,11 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BaseController
 {
-
-	@Autowired
-	protected DaoFactory daoFactory;
-	@Autowired
-	protected ServiceFactory serviceFactory;
 
 	@ExceptionHandler(Exception.class)
 	@ResponseBody
