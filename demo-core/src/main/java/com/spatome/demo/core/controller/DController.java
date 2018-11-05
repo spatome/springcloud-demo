@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping(value = "/demo")
 @Slf4j
-public class DemoController extends BaseController {
+public class DController extends BController {
 
 	@RequestMapping(value = "test", method = RequestMethod.GET)
 	public Object test(HttpServletRequest request, HttpServletResponse response) throws Exception {
