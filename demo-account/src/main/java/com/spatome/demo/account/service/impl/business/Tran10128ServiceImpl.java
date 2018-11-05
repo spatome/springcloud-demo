@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
@@ -15,29 +16,32 @@ import com.spatome.demo.account.service.impl.BaseService;
 import com.spatome.demo.core.BaseVO;
 import com.spatome.demo.core.vo.SSVO;
 
+import lombok.extern.slf4j.Slf4j;
+
 /** 
  * @Description: account
  * 加钱
  */
 @Service
-@Transactional
+@Slf4j
 public class Tran10128ServiceImpl extends BaseService implements TranService {
 
 	@Override
-	public Object execute(Map<String, String> request, HttpServletResponse response) {
+	@Transactional
+	public Object execute(Map<String, String> inMap, HttpServletRequest request, HttpServletResponse response) {
 		BaseVO<SSVO> result = new BaseVO<SSVO>();
 
-		LOGGER.debug("获取参数");
-		String accountNo = request.get("accountNo");
-		String amount = request.get("amount");
-		String sleep = request.get("sleep");
-		LOGGER.debug("检查参数");
+		log.debug("获取参数");
+		String accountNo = inMap.get("accountNo");
+		String amount = inMap.get("amount");
+		String sleep = inMap.get("sleep");
+		log.debug("检查参数");
 		Map<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("accountNo", accountNo);
 		paramMap.put("amount", amount);
 		super.checkNotEmpty(paramMap);
 
-		LOGGER.debug("===========================业务处理=========================");
+		log.debug("===========================业务处理=========================");
 		BigDecimal amt = new BigDecimal(amount);
 
 		if(StringUtils.isNotBlank(sleep)){

@@ -29,7 +29,7 @@ public class ZuulFallBack implements FallbackProvider {
 			public InputStream getBody() throws IOException {
                 JSONObject json =new JSONObject();
                 json.put("code","9999");
-                json.put("message","服务调用失败:"+route);
+                json.put("message","gateway服务调用失败:"+route);
                 return new ByteArrayInputStream(json.toJSONString().getBytes("UTF-8"));
 			}
 
@@ -58,7 +58,7 @@ public class ZuulFallBack implements FallbackProvider {
 			@Override
 			public void close() {
 			}
-			
+
 		};
 	}
 

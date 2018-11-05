@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 
 	<name>demo-cloud-gateway</name>
-	<description>springcloud demo 网关服务</description>
+	<description>springcloud-demo 网关服务</description>
 
 	<parent>
 		<groupId>com.spatome.demo</groupId>
@@ -26,6 +26,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -54,20 +58,18 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 		</dependency>
-
-		<!-- 注解（日志 get set）相关 -->
-		<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
-		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>demo-gateway</finalName>
+		<finalName>demo-cloud-gateway</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -3,8 +3,6 @@ package com.spatome.demo.account.service.impl;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.spatome.demo.account.factory.DaoFactory;
@@ -12,8 +10,6 @@ import com.spatome.demo.account.factory.ServiceFactory;
 import com.spatome.demo.core.exception.SException;
 
 public abstract class BaseService {
-
-	protected final static Logger LOGGER = LoggerFactory.getLogger(BaseService.class);
 
 	@Autowired
 	protected DaoFactory daoFactory;

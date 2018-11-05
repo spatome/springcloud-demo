@@ -17,9 +17,13 @@ public class DaoFactoryImpl implements DaoFactory
 {
 	@Autowired
 	private AccountMapper accountMapper;
+	@Autowired
 	private EnterpriseMapper enterpriseMapper;
+	@Autowired
 	private SysPermissionMapper sysPermissionMapper;
+	@Autowired
 	private SysRoleMapper sysRoleMapper;
+	@Autowired
 	private SysUserMapper sysUserMapper;
 
 	@Override
