@@ -1,4 +1,4 @@
-package com.spatome.demo.account.controller;
+package com.spatome.demo.core.controller;
 
 import java.util.Map;
 
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spatome.demo.account.service.TranService;
-import com.spatome.demo.account.util.SpringUtil;
+import com.spatome.demo.core.service.TranService;
+import com.spatome.demo.core.util.spring.SpringUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping(value = "/process")
 @Slf4j
-public class TransTypeController extends BaseController {
+public class TransTypeController extends BController {
 
 	@RequestMapping(value = "{transType}", method = RequestMethod.POST)
 	public Object process(

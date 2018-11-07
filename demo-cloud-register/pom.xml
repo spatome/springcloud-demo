@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 
 	<name>demo-cloud-register</name>
-	<description>springcloud demo 注册中心</description>
+	<description>springcloud-demo 注册中心</description>
 
 	<parent>
 		<groupId>com.spatome.demo</groupId>

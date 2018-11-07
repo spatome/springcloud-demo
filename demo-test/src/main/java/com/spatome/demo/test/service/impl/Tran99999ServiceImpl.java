@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spatome.demo.core.BaseVO;
-import com.spatome.demo.test.service.TranService;
+import com.spatome.demo.core.service.TranService;
 
 import lombok.extern.slf4j.Slf4j;
 
