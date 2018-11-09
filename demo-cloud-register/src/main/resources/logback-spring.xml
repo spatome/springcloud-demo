@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<configuration debug="false">
+<configuration  scan="true" scanPeriod="30 seconds" debug="false">
 
 	<!-- 日志路径 -->
 	<property name="LOG_HOME" value="/data/cloud/logs/" />
@@ -30,7 +30,9 @@
             <pattern>${LOG_PATTERN}</pattern>
         </encoder>
     </appender> 
-      
+
+	<logger name="com.netflix.eureka.registry.AbstractInstanceRegistry" level="WARN" />
+
     <!-- 日志输出级别 -->
     <root level="INFO">
         <appender-ref ref="STDOUT" />
