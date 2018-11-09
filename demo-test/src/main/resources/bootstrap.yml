@@ -6,8 +6,8 @@ eureka:
     lease-expiration-duration-in-seconds: 15
   client:
     service-url:
-      defaultZone: http://root:root@localhost:9999/eureka/
-      #defaultZone: http://root:root@192.168.0.185:9999/eureka/
+      #defaultZone: http://root:root@localhost:9999/eureka/
+      defaultZone: http://root:root@192.168.0.199:9999/eureka/
     registry-fetch-interval-seconds: 5
 
 spring:
@@ -22,14 +22,9 @@ spring:
         service-id: DEMO-CLOUD-CONFIG
       label: master
 
-feign:
-  hystrix:
-    enabled: true
-  client:
-    config:
-      default:
-        connectTimeout: 3000
-        readTimeout: 30000
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 50000
 
 hystrix:
   command:

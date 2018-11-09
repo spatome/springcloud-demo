@@ -45,14 +45,9 @@ spring:
 #      exposure:
 #        include: bus-refresh
 
-feign:
-  hystrix:
-    enabled: true
-  client:
-    config:
-      default:
-        connectTimeout: 3000
-        readTimeout: 30000
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 50000
 
 hystrix:
   command:
