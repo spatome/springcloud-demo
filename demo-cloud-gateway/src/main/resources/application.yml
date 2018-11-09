@@ -19,3 +19,6 @@ zuul:
     test:
       path: /test/**
       service-id: DEMO-TEST
+    tmp:
+      path: /tmp/**
+      service-id: DEMO-TMP

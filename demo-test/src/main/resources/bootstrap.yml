@@ -6,7 +6,8 @@ eureka:
     lease-expiration-duration-in-seconds: 15
   client:
     service-url:
-      defaultZone: http://root:root@192.168.0.185:9999/eureka/
+      defaultZone: http://root:root@localhost:9999/eureka/
+      #defaultZone: http://root:root@192.168.0.185:9999/eureka/
     registry-fetch-interval-seconds: 5
 
 spring:
@@ -16,33 +17,10 @@ spring:
       profile: dev
       username: root
       password: root
-      #uri:
-      #  - http://192.168.0.199:39998
       discovery:
         enabled: true
         service-id: DEMO-CLOUD-CONFIG
       label: master
-
-#spring:
-#  application:
-#    name: demo-test
-#  cloud:
-#    config:
-#      #profile: dev
-#      name: config-dev
-#      discovery:
-#        enabled: true
-#        service-id: DEMO-CONFIG
-#    bus:
-#      enabled: true
-#      trace:
-#        enabled: true
-#
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: bus-refresh
 
 feign:
   hystrix:
