@@ -153,6 +153,32 @@
       </if>
   </select>
 
+	<insert id="batchInsert" parameterType="java.util.List">
+		<selectKey resultType ="java.lang.Long" keyProperty= "id" order= "AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	   	insert into enterprise (
+			id,
+			enterprise_no, 
+      		enterprise_name,
+      		descs,
+      		status, 
+      		create_time,
+      		update_time
+	    ) values
+		<foreach collection ="list" item="item" index= "index" separator =",">
+		(
+			#{item.id,jdbcType=BIGINT},
+			#{item.enterpriseNo,jdbcType=VARCHAR}, 
+      		#{item.enterpriseName,jdbcType=VARCHAR},
+      		#{item.descs,jdbcType=VARCHAR},
+      		#{item.status,jdbcType=VARCHAR}, 
+      		#{item.createTime,jdbcType=TIMESTAMP},
+      		#{item.updateTime,jdbcType=TIMESTAMP}
+		)
+		</foreach>
+	</insert>
+
   <select id="selectByEnterpriseNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
