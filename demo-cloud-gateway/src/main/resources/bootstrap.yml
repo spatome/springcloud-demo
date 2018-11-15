@@ -6,8 +6,7 @@ eureka:
     lease-expiration-duration-in-seconds: 15
   client:
     service-url:
-      defaultZone: http://root:root@localhost:9999/eureka/
-      #defaultZone: http://root:root@192.168.0.199:9999/eureka/
+      defaultZone: http://root:root@192.168.0.199:9999/eureka/
     registry-fetch-interval-seconds: 5
 
 spring:
