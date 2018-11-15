@@ -9,6 +9,16 @@ eureka:
       defaultZone: http://root:root@192.168.0.199:9999/eureka/
     registry-fetch-interval-seconds: 5
 
+spring:
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://192.168.0.199:9411
+
 ribbon:
   ConnectTimeout: 5000
   ReadTimeout: 50000
