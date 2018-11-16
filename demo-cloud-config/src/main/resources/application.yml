@@ -11,6 +11,10 @@ eureka:
 
 server:
   port: 9998
+  tomcat:
+    min-spare-threads: 20
+    max-threads: 200
+  connection-timeout: 10000
 
 spring:
   application:

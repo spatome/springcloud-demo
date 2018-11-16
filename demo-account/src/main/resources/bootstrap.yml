@@ -9,6 +9,12 @@ eureka:
       defaultZone: http://root:root@192.168.0.199:9999/eureka/
     registry-fetch-interval-seconds: 5
 
+server:
+  tomcat:
+    min-spare-threads: 20
+    max-threads: 200
+  connection-timeout: 10000
+
 spring:
   cloud:
     config:
@@ -62,4 +68,4 @@ hystrix:
       execution:
         isolation: 
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 60000            
