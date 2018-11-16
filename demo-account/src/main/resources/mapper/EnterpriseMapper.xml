@@ -24,7 +24,7 @@
     delete from enterprise
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.spatome.demo.core.entity.Enterprise" >
+  <insert id="insert" parameterType="com.spatome.demo.core.entity.Enterprise" useGeneratedKeys="true" keyProperty="id">
     insert into enterprise (id, version, enterprise_no, 
       enterprise_name, descs, status, 
       create_time, update_time)
@@ -32,7 +32,7 @@
       #{enterpriseName,jdbcType=VARCHAR}, #{descs,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.spatome.demo.core.entity.Enterprise" >
+  <insert id="insertSelective" parameterType="com.spatome.demo.core.entity.Enterprise" useGeneratedKeys="true" keyProperty="id">
     insert into enterprise
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

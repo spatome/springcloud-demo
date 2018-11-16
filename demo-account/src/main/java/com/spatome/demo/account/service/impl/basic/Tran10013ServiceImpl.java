@@ -1,4 +1,4 @@
-package com.spatome.demo.user.service.impl.basic;
+package com.spatome.demo.account.service.impl.basic;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.spatome.demo.account.service.impl.BaseService;
+import com.spatome.demo.account.vo.AccountVO;
 import com.spatome.demo.core.BaseVO;
-import com.spatome.demo.core.entity.Enterprise;
+import com.spatome.demo.core.entity.Account;
 import com.spatome.demo.core.service.TranService;
-import com.spatome.demo.user.service.impl.BaseService;
-import com.spatome.demo.user.vo.EnterpriseVO;
 
 /** 
  * 增删查改
- * @Description: enterprise
- * 查询
+ * @Description: account
+ * 查
  */
 @Service
 public class Tran10013ServiceImpl extends BaseService implements TranService {
@@ -27,30 +27,27 @@ public class Tran10013ServiceImpl extends BaseService implements TranService {
 	@Transactional
 	public Object execute(Map<String, String> inMap, HttpServletRequest request, HttpServletResponse response) {
 		BaseVO<Object> result = new BaseVO<Object>();
-		EnterpriseVO VO = new EnterpriseVO();
+		AccountVO VO = new AccountVO();
 		result.setBody(VO);
 
 		//获取参数
-		String enterpriseNo = inMap.get("enterpriseNo");
+		String accountNo = inMap.get("accountNo");
 		//检查参数
 		Map<String, String> paramMap = new HashMap<String, String>();
-		paramMap.put("enterpriseNo", enterpriseNo);
+		paramMap.put("accountNo", accountNo);
 		super.checkNotEmpty(paramMap);
 
 		//===========================业务处理=========================
-		Enterprise record = daoFactory.getEnterpriseMapper().selectByEnterpriseNo(enterpriseNo);
+		Account record = daoFactory.getAccountMapper().selectByAccountNo(accountNo);
 		if(record==null){
-			result.setCodeMessage("9999", "商家不存在");
+			result.setCodeMessage("9999", "账号不存在");
 			return result;
 		}
 
-		VO.setEnterpriseId(record.getId());
-		VO.setEnterpriseNo(record.getEnterpriseNo());
-		VO.setEnterpriseName(record.getEnterpriseName());
-		VO.setStatus(record.getStatus());
-		VO.setStatusName(VO.getStatus());
+		VO.setAccountId(record.getId());
+		VO.setAccountNo(record.getAccountNo());
+		VO.setCurrentAmount(record.getCurrentAmount().toPlainString());
 
 		return result;
 	}
-
 }
