@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UserClient {
 
 	@PostMapping(value="/process/10013")
-	public Object queryEnterpriseById(
-			@RequestParam(value="enterpriseId", required=true)
-			String enterpriseId
+	public Object queryEnterpriseByNo(
+			@RequestParam(value="enterpriseNo", required=true)
+			String enterpriseNo
 			);
 
 }

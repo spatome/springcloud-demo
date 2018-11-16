@@ -36,7 +36,7 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		Map map = (Map)serviceFactory.getUserClient().queryEnterpriseById(enterpriseId);
+		Map map = (Map)serviceFactory.getUserClient().queryEnterpriseByNo(enterpriseNo);
 
 		result.setBody(map);
 

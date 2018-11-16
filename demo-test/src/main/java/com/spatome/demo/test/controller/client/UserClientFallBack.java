@@ -8,7 +8,7 @@ import com.spatome.demo.core.BaseVO;
 public class UserClientFallBack implements UserClient {
 
 	@Override
-	public BaseVO<Object> queryEnterpriseById(String enterpriseId) {
+	public BaseVO<Object> queryEnterpriseByNo(String enterpriseId) {
 		BaseVO<Object> result = new BaseVO<Object>();
 		result.setCodeMessage("9999", "哈哈哈，连不上:DEMO-USER");
 		return result;
