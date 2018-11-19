@@ -185,4 +185,54 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.spatome.demo.core.entity.SysUser">
+	select <include refid="Base_Column_List" />
+	from sys_user T WHERE 1 = 1
+      <if test="version != null" >
+        AND version = #{version,jdbcType=BIGINT}
+      </if>
+      <if test="userNo != null" >
+        AND user_no = #{userNo,jdbcType=VARCHAR}
+      </if>
+      <if test="userPwd != null" >
+        AND user_pwd = #{userPwd,jdbcType=VARCHAR}
+      </if>
+      <if test="userName != null" >
+        AND user_name = #{userName,jdbcType=VARCHAR}
+      </if>
+      <if test="nickName != null" >
+        AND nick_name = #{nickName,jdbcType=VARCHAR}
+      </if>
+      <if test="sysRoleId != null" >
+        AND sys_role_id = #{sysRoleId,jdbcType=BIGINT}
+      </if>
+      <if test="enterpriseNo != null" >
+        AND enterprise_no = #{enterpriseNo,jdbcType=VARCHAR}
+      </if>
+      <if test="descs != null" >
+        AND descs = #{descs,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null" >
+        AND status = #{status,jdbcType=VARCHAR}
+      </if>
+      <if test="lastLoginTime != null" >
+        AND last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createTime != null" >
+        AND create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateTime != null" >
+        AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+  </select>
+
+  <select id="selectByUserNo" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from sys_user
+    where user_no = #{userNo,jdbcType=VARCHAR}
+    LIMIT 1
+  </select>
 </mapper>
