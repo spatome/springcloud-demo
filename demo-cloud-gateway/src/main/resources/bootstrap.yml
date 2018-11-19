@@ -26,7 +26,7 @@ spring:
         enabled: true
         service-id: DEMO-CLOUD-CONFIG
       label: master
-  sleuth:
+  sleuth: #sleuth+zipkin 分布式路由跟踪
     web:
       client:
         enabled: true

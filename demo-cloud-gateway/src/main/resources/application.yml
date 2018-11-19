@@ -22,3 +22,12 @@ zuul:
     tmp:
       path: /tmp/**
       service-id: DEMO-TMP
+  ratelimit:  #网关限流
+    enabled: false
+    behind-proxy: true
+    default-policy:
+      limit: 100
+      type:
+        - ORIGIN
+        #- USER
+        #- URL
