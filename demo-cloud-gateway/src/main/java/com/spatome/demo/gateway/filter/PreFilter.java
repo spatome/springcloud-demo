@@ -19,7 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class PreFilter extends ZuulFilter {
-	//private final static ObjectMapper OM = new ObjectMapper();
 
 	@Override
 	public boolean shouldFilter() {
