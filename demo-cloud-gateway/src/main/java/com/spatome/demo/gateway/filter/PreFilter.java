@@ -59,6 +59,7 @@ public class PreFilter extends ZuulFilter {
         if (StringUtils.isBlank(token)) {
         	log.error(uri+"需要token");
         	sendResponse(ctx, BaseVO.JSON_RESULT_FAIL);
+        	return;
         }else if("AAAAAAAAAA".equals(token)){
         	return;
         }else{

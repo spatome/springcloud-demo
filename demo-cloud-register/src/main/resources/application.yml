@@ -1,9 +1,5 @@
 server:
   port: 9999
-  tomcat:
-    min-spare-threads: 20
-    max-threads: 200
-  connection-timeout: 10000
 
 spring:
   application:
@@ -27,4 +23,4 @@ eureka:
     register-with-eureka: false #指示此实例是否应将其信息注册到eureka服务器以供其他人发现。在某些情况下，您不希望发现实例，而您只想发现其他实例。
     fetch-registry: false #指示该客户端是否应从eureka服务器获取eureka注册表信息
     service-url:
-      defaultZone: http://root:root@localhost:${server.port}/eureka/
+      defaultZone: http://root:root@192.168.0.199:${server.port}/eureka/
