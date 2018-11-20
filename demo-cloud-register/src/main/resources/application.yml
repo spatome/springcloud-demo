@@ -20,7 +20,6 @@ eureka:
     lease-expiration-duration-in-seconds: 15 #在这个时间内若没收到下一次心跳，则将移除该instancem,为了防止网络抖动设置3倍心跳时间
   server:
     enable-self-preservation: false #关闭服务保护机制
-    renewal-threshold-update-interval-ms: 120000 #此值用于计算每分钟的预期心跳
     eviction-interval-timer-in-ms: 5000 #清理无效节点时间间隔（单位毫秒，默认是60*1000）
     use-read-only-response-cache: false #禁用readOnlyCacheMap
   client:
