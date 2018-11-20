@@ -19,6 +19,7 @@ eureka:
     lease-renewal-interval-in-seconds: 5  #服务刷新时间配置，每隔这个时间会主动心跳一次，默认30s
     lease-expiration-duration-in-seconds: 15 #在这个时间内若没收到下一次心跳，则将移除该instancem,为了防止网络抖动设置3倍心跳时间
   server:
+    peer-node-read-timeout-ms: 1000 #接对等节点服务器复制的超时的时间，单位为毫秒，默认为200
     enable-self-preservation: false #关闭服务保护机制
     eviction-interval-timer-in-ms: 5000 #清理无效节点时间间隔（单位毫秒，默认是60*1000）
     use-read-only-response-cache: false #禁用readOnlyCacheMap
