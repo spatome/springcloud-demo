@@ -11,6 +11,10 @@ eureka:
 
 server:
   port: 9998
+  tomcat:
+    min-spare-threads: 20
+    max-threads: 200
+  connection-timeout: 10000
 
 spring:
   application:
@@ -19,12 +23,11 @@ spring:
     user:
       name: root
       password: root
-  profiles:
-    active:
-      - native
   cloud:
     config:
       server:
-        native:
-          search-locations:
-            - file:./config/
+        git:
+          uri: https://github.com/spatome/springcloud-demo/ #github 仓库地址
+          search-paths: config-repo #配置中心
+          username: spatome
+          password: Zw111111
