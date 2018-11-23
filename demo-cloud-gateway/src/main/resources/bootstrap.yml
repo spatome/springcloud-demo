@@ -20,8 +20,8 @@ spring:
     config:
       name: config  #配置文件config-dev.properties
       profile: dev
-      username: root
-      password: root
+      #username: root
+      #password: root
       discovery:
         enabled: true
         service-id: DEMO-CLOUD-CONFIG

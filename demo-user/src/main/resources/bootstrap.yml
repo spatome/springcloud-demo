@@ -9,31 +9,17 @@ eureka:
       defaultZone: http://root:root@192.168.0.199:9999/eureka/
     registry-fetch-interval-seconds: 5
 
-server:
-  tomcat:
-    min-spare-threads: 20
-    max-threads: 200
-  connection-timeout: 10000
-
 spring:
   cloud:
     config:
       name: config  #配置文件config-dev.properties
       profile: dev
-      username: root
-      password: root
+      #username: root
+      #password: root
       discovery:
         enabled: true
         service-id: DEMO-CLOUD-CONFIG
       label: master
-  sleuth:
-    web:
-      client:
-        enabled: true
-    sampler:
-      probability: 0.1
-  zipkin:
-    base-url: http://192.168.0.199:9411
 
 ribbon:
   ConnectTimeout: 5000
