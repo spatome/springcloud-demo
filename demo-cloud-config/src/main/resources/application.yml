@@ -2,12 +2,12 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    lease-renewal-interval-in-seconds: 5
+    lease-renewal-interval-in-seconds: 5  #心跳
     lease-expiration-duration-in-seconds: 15
   client:
+    registry-fetch-interval-seconds: 5 #定时刷新本地缓存时间
     service-url:
       defaultZone: http://root:root@192.168.0.199:9999/eureka/
-    registry-fetch-interval-seconds: 5
 
 server:
   port: 9998
@@ -15,10 +15,6 @@ server:
 spring:
   application:
     name: demo-cloud-config
-  security:
-    user:
-      name: root
-      password: root
   profiles:
     active:
       - native
@@ -28,3 +24,16 @@ spring:
         native:
           search-locations:
             - file:./config/
+
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 50000
+  ServerListRefreshInterval: 2000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation: 
+          thread:
+            timeoutInMilliseconds: 110000

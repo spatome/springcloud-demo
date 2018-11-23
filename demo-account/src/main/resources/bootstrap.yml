@@ -20,8 +20,6 @@ spring:
     config:
       name: config  #配置文件config-dev.properties
       profile: dev
-      #username: root
-      #password: root
       discovery:
         enabled: true
         service-id: DEMO-CLOUD-CONFIG
@@ -59,6 +57,7 @@ spring:
 ribbon:
   ConnectTimeout: 5000
   ReadTimeout: 50000
+  ServerListRefreshInterval: 2000
 
 hystrix:
   command:
@@ -66,4 +65,4 @@ hystrix:
       execution:
         isolation: 
           thread:
-            timeoutInMilliseconds: 60000            
+            timeoutInMilliseconds: 110000            

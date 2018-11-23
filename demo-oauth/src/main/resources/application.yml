@@ -1,9 +1,9 @@
 server:
-  port: 9910
-
+  port: 9994
+  
 spring:
   application:
-    name: demo-account
+    name: demo-oauth
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
@@ -14,8 +14,3 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.spatome.demo.core.entity
-
-#redisson:
-#  address: redis://192.168.0.132:6379
-#  password: kxyx92108
-#  database: 3

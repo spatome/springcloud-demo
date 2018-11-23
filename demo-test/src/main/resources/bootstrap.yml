@@ -18,6 +18,7 @@ server:
 ribbon:
   ConnectTimeout: 5000
   ReadTimeout: 50000
+  ServerListRefreshInterval: 2000
 
 hystrix:
   command:
@@ -25,4 +26,4 @@ hystrix:
       execution:
         isolation: 
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 110000
