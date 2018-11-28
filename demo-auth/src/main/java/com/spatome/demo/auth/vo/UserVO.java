@@ -8,6 +8,7 @@ public class UserVO {
 	private String userNo;
 	private String userName;
 	private String nickName;
+	private String enterpriseNo;
 
 	private String userRole;
 

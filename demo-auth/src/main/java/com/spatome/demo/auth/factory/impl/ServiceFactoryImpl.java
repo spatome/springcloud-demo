@@ -5,17 +5,17 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.spatome.demo.auth.factory.ServiceFactory;
-import com.spatome.demo.auth.service.UserService;
+import com.spatome.demo.auth.service.AuthService;
 
 @Lazy
 @Service
 public class ServiceFactoryImpl implements ServiceFactory
 {
 	@Autowired
-	private UserService userServiceImpl;
+	private AuthService userServiceImpl;
 
 	@Override
-	public UserService getUserService() {
+	public AuthService getUserService() {
 		return userServiceImpl;
 	}
 	

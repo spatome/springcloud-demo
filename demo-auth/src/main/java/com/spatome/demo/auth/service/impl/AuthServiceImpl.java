@@ -1,4 +1,4 @@
-package com.spatome.demo.oauth.service.impl;
+package com.spatome.demo.auth.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,16 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.spatome.demo.oauth.service.UserService;
-import com.spatome.demo.oauth.vo.UserVO;
+import com.spatome.demo.auth.service.AuthService;
+import com.spatome.demo.auth.vo.UserVO;
 import com.spatome.demo.core.BaseVO;
 import com.spatome.demo.core.entity.SysUser;
 import com.spatome.demo.core.util.SUtil;
 import com.spatome.demo.core.util.security.JwtUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
-//@Slf4j
-public class UserServiceImpl extends BaseService implements UserService {
+@Slf4j
+public class AuthServiceImpl extends BaseService implements AuthService {
 
 	@Override
 	@Transactional
@@ -39,6 +41,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 		//业务处理
 		SysUser record = daoFactory.getSysUserMapper().selectByUserNo(userNo);
 		if(record==null){
+			log.error("用户{{}}不存在", userNo);
 			result.setCodeMessage("9999", "用户不存在");
 			return result;
 		}
@@ -50,6 +53,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 		VO.setUserNo(record.getUserNo());
 		VO.setUserName(record.getUserName());
 		VO.setNickName(record.getNickName());
+		VO.setEnterpriseNo(record.getEnterpriseNo());
 		VO.setUserRole(SUtil.NTS(record.getSysRoleId()));
 
 		Map<String, Object> map = new HashMap<String, Object>();

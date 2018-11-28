@@ -1,10 +1,10 @@
 package com.spatome.demo.auth.factory;
 
-import com.spatome.demo.auth.service.UserService;
+import com.spatome.demo.auth.service.AuthService;
 
 public interface ServiceFactory
 {
 
-	public UserService getUserService();
+	public AuthService getUserService();
 
 }

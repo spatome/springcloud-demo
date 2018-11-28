@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.spatome.demo.core.BaseVO;
 
-public interface UserService {
+public interface AuthService {
 
 	public BaseVO<?> userLogin(HttpServletRequest request, HttpServletResponse response);
 
