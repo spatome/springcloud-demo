@@ -35,7 +35,8 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		
+		result.setBody(super.spatomeConfig.getUserName());
+
 		return result;
 	}
 

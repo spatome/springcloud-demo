@@ -4,3 +4,6 @@ server:
 spring:
   application:
     name: demo-tmp
+
+spatome:
+  user-name: zw11111111111111

@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.spatome.demo.core.exception.SException;
+import com.spatome.demo.tmp.config.SpatomeConfig;
 import com.spatome.demo.tmp.factory.DaoFactory;
 import com.spatome.demo.tmp.factory.ServiceFactory;
 
@@ -14,6 +15,8 @@ public abstract class BaseService {
 	protected DaoFactory daoFactory;
 	@Autowired
 	protected ServiceFactory serviceFactory;
+	@Autowired
+	protected SpatomeConfig spatomeConfig;
 
 	/** 
 	 * @Description: 不空检查
