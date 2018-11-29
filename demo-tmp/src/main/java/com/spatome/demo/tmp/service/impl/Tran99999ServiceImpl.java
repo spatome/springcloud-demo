@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.spatome.demo.core.BaseVO;
@@ -20,9 +21,18 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Tran99999ServiceImpl extends BaseService implements TranService {
 
+	@Value("jdbc_url")
+	private String jdbcUrl; 
+	@Value("jdbc_username")
+	private String jdbcUserName;
+	@Value("jdbc_password")
+	private String jdbcPassword;
+
 	@Override
 	public Object execute(Map<String, String> inMap, HttpServletRequest request, HttpServletResponse response) {
 		BaseVO<Object> result = new BaseVO<Object>();
+		Map<String, String> map = new HashMap<String, String>();
+		result.setBody(map);
 
 		log.debug("获取参数");
 		String enterpriseNo = inMap.get("enterpriseNo");
@@ -35,7 +45,9 @@ public class Tran99999ServiceImpl extends BaseService implements TranService {
 		super.checkNotEmpty(paramMap);
 
 		log.debug("===========================业务处理=========================");
-		result.setBody(super.spatomeConfig.getUserName());
+		map.put("userName", spatomeConfig.getUserName());
+		map.put("jdbcUserName", jdbcUserName);
+		map.put("jdbcPassword", jdbcPassword);
 
 		return result;
 	}

@@ -16,14 +16,14 @@ spring:
   application:
     name: demo-cloud-config
   profiles:
-    active:
-      - native
+    active: native
   cloud:
     config:
+      label: master
       server:
         native:
           search-locations:
-            - file:./config/
+            - file:./config/ #注意。表示执行命令的目录
 
 ribbon:
   ConnectTimeout: 5000
