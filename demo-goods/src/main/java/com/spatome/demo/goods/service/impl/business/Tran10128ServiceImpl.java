@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.spatome.demo.core.BaseVO;
 import com.spatome.demo.core.service.TranService;
 import com.spatome.demo.core.vo.SSVO;
 import com.spatome.demo.goods.service.impl.BaseService;
+import com.spatome.demo.goods.util.LockUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,7 +25,6 @@ import lombok.extern.slf4j.Slf4j;
 public class Tran10128ServiceImpl extends BaseService implements TranService {
 
 	@Override
-	@Transactional
 	public Object execute(Map<String, String> inMap, HttpServletRequest request, HttpServletResponse response) {
 		BaseVO<SSVO> result = new BaseVO<SSVO>();
 
@@ -46,7 +45,14 @@ public class Tran10128ServiceImpl extends BaseService implements TranService {
 			return result;
 		}
 
-		int ret = serviceFactory.getGoodsService().addPrizeBalanceCount(Long.valueOf(prizeId), countInt, sleep);
+		Integer ret = null;
+		LockUtil.prizeBalanceLock.lock();
+		try{
+			ret = serviceFactory.getGoodsService().addPrizeBalanceCount(Long.valueOf(prizeId), countInt, sleep);
+		}finally{
+			LockUtil.prizeBalanceLock.unlock();
+		}
+
 		result.setBody(new SSVO(String.valueOf(ret)));
 
 		return result;
