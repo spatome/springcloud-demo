@@ -16,6 +16,9 @@ zuul:
     account:
       path: /account/**
       service-id: DEMO-ACCOUNT
+    goods:
+      path: /goods/**
+      service-id: DEMO-GOODS
     test:
       path: /test/**
       service-id: DEMO-TEST
@@ -23,7 +26,7 @@ zuul:
       path: /tmp/**
       service-id: DEMO-TMP
   ratelimit:  #网关限流
-    enabled: false
+    enabled: false  #关闭
     behind-proxy: true
     default-policy:
       limit: 100

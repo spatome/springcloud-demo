@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spatome.demo.goods.dao.PrizeMapper" >
+  <resultMap id="BaseResultMap" type="com.spatome.demo.core.entity.Prize" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="prize_name" property="prizeName" jdbcType="VARCHAR" />
+    <result column="prize_unit_amount" property="prizeUnitAmount" jdbcType="DECIMAL" />
+    <result column="prize_total_count" property="prizeTotalCount" jdbcType="INTEGER" />
+    <result column="prize_balance_count" property="prizeBalanceCount" jdbcType="INTEGER" />
+    <result column="prize_status" property="prizeStatus" jdbcType="VARCHAR" />
+    <result column="descs" property="descs" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, prize_name, prize_unit_amount, prize_total_count, prize_balance_count, prize_status, 
+    descs, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from prize
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from prize
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.spatome.demo.core.entity.Prize" useGeneratedKeys="true" keyProperty="id">
+    insert into prize (id, prize_name, prize_unit_amount, 
+      prize_total_count, prize_balance_count, prize_status, 
+      descs, create_time, update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{prizeName,jdbcType=VARCHAR}, #{prizeUnitAmount,jdbcType=DECIMAL}, 
+      #{prizeTotalCount,jdbcType=INTEGER}, #{prizeBalanceCount,jdbcType=INTEGER}, #{prizeStatus,jdbcType=VARCHAR}, 
+      #{descs,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.spatome.demo.core.entity.Prize" useGeneratedKeys="true" keyProperty="id">
+    insert into prize
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="prizeName != null" >
+        prize_name,
+      </if>
+      <if test="prizeUnitAmount != null" >
+        prize_unit_amount,
+      </if>
+      <if test="prizeTotalCount != null" >
+        prize_total_count,
+      </if>
+      <if test="prizeBalanceCount != null" >
+        prize_balance_count,
+      </if>
+      <if test="prizeStatus != null" >
+        prize_status,
+      </if>
+      <if test="descs != null" >
+        descs,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="prizeName != null" >
+        #{prizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeUnitAmount != null" >
+        #{prizeUnitAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="prizeTotalCount != null" >
+        #{prizeTotalCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeBalanceCount != null" >
+        #{prizeBalanceCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeStatus != null" >
+        #{prizeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="descs != null" >
+        #{descs,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.spatome.demo.core.entity.Prize" >
+    update prize
+    <set >
+      <if test="prizeName != null" >
+        prize_name = #{prizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeUnitAmount != null" >
+        prize_unit_amount = #{prizeUnitAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="prizeTotalCount != null" >
+        prize_total_count = #{prizeTotalCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeBalanceCount != null" >
+        prize_balance_count = #{prizeBalanceCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeStatus != null" >
+        prize_status = #{prizeStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="descs != null" >
+        descs = #{descs,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.spatome.demo.core.entity.Prize" >
+    update prize
+    set prize_name = #{prizeName,jdbcType=VARCHAR},
+      prize_unit_amount = #{prizeUnitAmount,jdbcType=DECIMAL},
+      prize_total_count = #{prizeTotalCount,jdbcType=INTEGER},
+      prize_balance_count = #{prizeBalanceCount,jdbcType=INTEGER},
+      prize_status = #{prizeStatus,jdbcType=VARCHAR},
+      descs = #{descs,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+  <select id="selectByBean" resultMap="BaseResultMap" parameterType="com.spatome.demo.core.entity.Prize">
+	select <include refid="Base_Column_List" />
+	from prize T WHERE 1 = 1
+      <if test="prizeName != null" >
+        AND prize_name = #{prizeName,jdbcType=VARCHAR}
+      </if>
+      <if test="prizeUnitAmount != null" >
+        AND prize_unit_amount = #{prizeUnitAmount,jdbcType=DECIMAL}
+      </if>
+      <if test="prizeTotalCount != null" >
+        AND prize_total_count = #{prizeTotalCount,jdbcType=INTEGER}
+      </if>
+      <if test="prizeBalanceCount != null" >
+        AND prize_balance_count = #{prizeBalanceCount,jdbcType=INTEGER}
+      </if>
+      <if test="prizeStatus != null" >
+        AND prize_status = #{prizeStatus,jdbcType=VARCHAR}
+      </if>
+      <if test="descs != null" >
+        AND descs = #{descs,jdbcType=VARCHAR}
+      </if>
+      <if test="createTime != null" >
+        AND create_time = #{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateTime != null" >
+        AND update_time = #{updateTime,jdbcType=TIMESTAMP}
+      </if>
+  </select>
+</mapper>
